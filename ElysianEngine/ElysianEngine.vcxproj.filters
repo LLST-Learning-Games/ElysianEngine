@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{3944a4fc-9658-46a0-b3c9-e8f4428b1da8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{d93247f8-ff62-48a9-a1d4-7f5451b07b2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\Components">
+      <UniqueIdentifier>{74255180-b617-4228-9078-edcdb56b0186}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\Components">
+      <UniqueIdentifier>{0ca42a60-98cc-4a8b-ac9e-e9fb3b6c2c18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\Tools">
+      <UniqueIdentifier>{b11ac0aa-84f8-42f8-a96e-5d80950cda69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\Tools">
+      <UniqueIdentifier>{2a8749eb-3b82-462a-b3f6-d4a9b56deaec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Math">
+      <UniqueIdentifier>{2983fef1-a817-4090-b939-60a8ca020b13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Math">
+      <UniqueIdentifier>{ff763fc5-778a-4140-8211-e23973d20b56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Test">
+      <UniqueIdentifier>{614ca6f9-35c5-42d7-9bd1-0a5d33c7d54b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Test">
+      <UniqueIdentifier>{f489b024-6797-4a7a-86e5-9492b540a1fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\Components\Physics">
+      <UniqueIdentifier>{b22f7d36-350e-4a5a-8840-34bbeafffafd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core\Components\Visuals">
+      <UniqueIdentifier>{0b093d6a-ed8a-4c60-8fdb-efd7a2f8cdee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\Components\Visuals">
+      <UniqueIdentifier>{49c2e39c-e9bc-4281-bfae-ac2fc2703947}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\Components\Physics">
+      <UniqueIdentifier>{16a6173e-4a63-464e-85e9-7d3a1fa0f702}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ElysianEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectComponent.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2D.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="DataLibrary.cpp">
+      <Filter>Source Files\Core\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="UfoObject.cpp">
+      <Filter>Source Files\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerObject.cpp">
+      <Filter>Source Files\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimatedSpriteComponent.cpp">
+      <Filter>Source Files\Core\Components\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteComponent.cpp">
+      <Filter>Source Files\Core\Components\Visuals</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxColliderComponent.cpp">
+      <Filter>Source Files\Core\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="InputComponent.cpp">
+      <Filter>Source Files\Core\Components\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformComponent.cpp">
+      <Filter>Source Files\Core\Components\Physics</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectComponent.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2D.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="DataLibrary.h">
+      <Filter>Header Files\Core\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="UfoObject.h">
+      <Filter>Header Files\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerObject.h">
+      <Filter>Header Files\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteComponent.h">
+      <Filter>Header Files\Core\Components\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimatedSpriteComponent.h">
+      <Filter>Header Files\Core\Components\Visuals</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxColliderComponent.h">
+      <Filter>Header Files\Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="InputComponent.h">
+      <Filter>Header Files\Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>Header Files\Core\Components\Physics</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
