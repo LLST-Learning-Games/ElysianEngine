@@ -1,13 +1,23 @@
-What is it?
+<h1>What is it?</h1>
 
-Elysian Engine is a basic exploration of 2D engine architecture in C++ and SDL2, intended for learning purposes. Currently the focus is on architecture and memory management, with only basic on-screen animated sprites and input implemented.
+<p>Elysian Engine is a basic exploration of 2D engine architecture in C++ and SDL2, intended for learning purposes. Currently the focus is on architecture and memory management, with only basic on-screen animated sprites and input implemented.</p>
 
-Todo
--Improve memory management
-  -Remove all naked pointers and replace with unique_ptr
-  -Implement copy/move semantics for GameObject / GameObjectComponent classes.
--Implement collision detection
-  -Simple AABB collision as a first step
--Implement tilemap import
--Implement input wrapper 
+<h2>Todo</h2>
+<ul>
+  <li>
+  Improve memory management
+  <ul>
+    <li>Remove all naked pointers and replace with unique_ptr</li>
+    <li>Implement copy/move semantics for GameObject / GameObjectComponent classes.</li>
+  </ul>
+  </li>
+  <li>
+  Implement collision detection
+  <ul>
+    <li>Simple AABB collision as a first step</li>
+  </ul>
+  </li>
+    <li>Implement tilemap import</li>
+    <li>Implement input wrapper</li>
+</ul>
 
