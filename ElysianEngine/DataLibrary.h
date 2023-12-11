@@ -10,14 +10,14 @@
 class DataLibrary
 {
 public:
-	DataLibrary(class Game& game);
+	DataLibrary(const class Game& game);
 	~DataLibrary();
 
 	SDL_Texture* GetTexture(const std::string& fileName);
 
 private:
 	std::unordered_map<std::string, SDL_Texture*> _textureDictionary;
-	class Game& _game;
+	const class Game& _game;
 
 	SDL_Texture* LoadSDLTexture(const std::string& fileName);
 };

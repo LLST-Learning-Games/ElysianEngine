@@ -1,7 +1,7 @@
 #include "InputComponent.h"
 
 
-InputComponent::InputComponent(GameObject& parent)
+InputComponent::InputComponent(const GameObject& parent)
 	: GameObjectComponent(parent, "input"),
 	_transform(parent.GetTransform())
 {
@@ -9,20 +9,26 @@ InputComponent::InputComponent(GameObject& parent)
 
 void InputComponent::UpdateInput(const float deltaTime, const Uint8* keyboardState)
 {
-	Vector2D* movement = new Vector2D(0, 0);
+	_directionalInput.x = 0;
+	_directionalInput.y = 0;
 
 	if (keyboardState[SDL_SCANCODE_UP]) {
-		movement->y -= 5;
+		_directionalInput.y -= 5;
 	}
 	if (keyboardState[SDL_SCANCODE_DOWN]) {
-		movement->y += 5;
+		_directionalInput.y += 5;
 	}
 	if (keyboardState[SDL_SCANCODE_LEFT]) {
-		movement->x -= 5;
+		_directionalInput.x -= 5;
 	}
 	if (keyboardState[SDL_SCANCODE_RIGHT]) {
-		movement->x += 5;
+		_directionalInput.x += 5;
 	}
 
-	_transform.SetMovementThisFrame(movement);
+	_transform.SetMovementThisFrame(_directionalInput);
+}
+
+InputComponent* InputComponent::Clone() const
+{
+	return new InputComponent(_parent);
 }

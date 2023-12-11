@@ -5,7 +5,7 @@
 class GameObjectComponent
 {
 public:
-	GameObjectComponent(class GameObject& parent, std::string type, int updateOrder = 100);
+	GameObjectComponent(const class GameObject& parent, const std::string type, const int updateOrder = 100);
 
 	int GetUpdateOrder();
 
@@ -13,11 +13,13 @@ public:
 	virtual void UpdateState(const float deltaTime);
 	virtual void UpdateOutput(const float deltaTime);
 
-	std::string GetType();
+	virtual GameObjectComponent* Clone() const = 0;
+	
+	const std::string& GetType() const;
 
 protected:
-	class GameObject& _parent;
-	int _updateOrder;
-	std::string _type;
+	const class GameObject& _parent;
+	const int _updateOrder;
+	const std::string _type;
 };
 

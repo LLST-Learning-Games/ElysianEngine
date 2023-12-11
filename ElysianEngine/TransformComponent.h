@@ -7,27 +7,29 @@
 class TransformComponent : public GameObjectComponent
 {
 public:
-	TransformComponent(Vector2D& position, Vector2D& scale, float rotation, GameObject& parent);
-	TransformComponent(Vector2D& position, Vector2D& scale, GameObject& parent);
-	TransformComponent(Vector2D& position, float rotation, GameObject& parent);
-	TransformComponent(Vector2D& position, GameObject& parent);
+	TransformComponent(const Vector2D& position, const Vector2D& scale, const float rotation, const GameObject& parent);
+	TransformComponent(const Vector2D& position, const Vector2D& scale, const GameObject& parent);
+	TransformComponent(const Vector2D& position, const float rotation, const GameObject& parent);
+	TransformComponent(const Vector2D& position, const GameObject& parent);
 
-	Vector2D& GetPosition();
-	Vector2D& GetScale();
-	float GetRotation();
+	const Vector2D& GetPosition() const;
+	const Vector2D& GetScale() const;
+	const float GetRotation() const;
 
-	void SetPosition(Vector2D& position);
-	void SetScale(Vector2D& scale);
-	void SetRotation(float rotation);
-	void SetMovementThisFrame(Vector2D* moveBy);
+	void SetPosition(const Vector2D& position);
+	void SetScale(const Vector2D& scale);
+	void SetRotation(const float rotation);
+	void SetMovementThisFrame(const Vector2D& moveBy);
 
 	void UpdateState(const float deltaTime) override;
+
+	TransformComponent* Clone() const override;
 
 protected:
 	Vector2D _position;
 	Vector2D _scale;
 	float _rotation;
 
-	Vector2D* _movementThisFrame;
+	const Vector2D* _movementThisFrame;
 };
 

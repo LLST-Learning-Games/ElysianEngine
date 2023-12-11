@@ -4,12 +4,15 @@ class AnimatedSpriteComponent :
     public SpriteComponent
 {
 public:
-    AnimatedSpriteComponent(GameObject& parent);
+    AnimatedSpriteComponent(const GameObject& parent);
+    AnimatedSpriteComponent(const GameObject& parent, const float animFps);
     void UpdateOutput(const float deltaTime) override;
-    void SetAnimTextures(std::vector<SDL_Texture*> textures);
+    void SetAnimTextures(const std::vector<SDL_Texture*> textures);
 
-    float GetAnimFPS() const;
-    void SetAnimFPS(float fps);
+    const float GetAnimFPS() const;
+    void SetAnimFPS(const float fps);
+
+    AnimatedSpriteComponent* Clone() const override;
 
 private:
     std::vector<SDL_Texture*> _animTextures;

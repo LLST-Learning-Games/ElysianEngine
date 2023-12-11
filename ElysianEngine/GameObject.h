@@ -11,31 +11,30 @@
 class GameObject
 {
 public:
-	GameObject(std::string id, class Game& game);
+	GameObject(const std::string& id, const class Game& game);
 	~GameObject();
 
 	void UpdateInput(const float deltaTime, const Uint8* keyboardState);
 	void UpdateState(const float deltaTime);
 	void UpdateOutput(const float deltaTime);
 
-	bool TryAddComponent(class GameObjectComponent* component);
-	bool TryRemoveComponent(class GameObjectComponent& component);
+	const bool TryAddComponent(class GameObjectComponent* component);
+	const bool TryRemoveComponent(class GameObjectComponent& component);
 
 	// todo - add update order to GameObject class
 
-	std::string GetId();
-	void SetId(std::string id);
+	const std::string& GetId() const;
 
-	class TransformComponent& GetTransform();
+	class TransformComponent& GetTransform() const;
 
 
 private:
-	Game& _game;
+	const Game& _game;
 
 	class TransformComponent* _transform;
 
 	// todo - migrate to unique_ptr
 	std::vector<GameObjectComponent*> _components;
-	std::string _id;
+	const std::string _id;
 };
 

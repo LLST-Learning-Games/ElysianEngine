@@ -1,12 +1,17 @@
 #include "BoxColliderComponent.h"
 
-BoxColliderComponent::BoxColliderComponent(GameObject& parent, Vector2D& size)
+BoxColliderComponent::BoxColliderComponent(const GameObject& parent, const Vector2D& size)
 	: GameObjectComponent(parent, "boxCollider"),
 	_size(size)
 {
 }
 
-bool BoxColliderComponent::IntersectsWith(const BoxColliderComponent& otherBox)
+const bool BoxColliderComponent::IntersectsWith(const BoxColliderComponent& otherBox) const
 {
 	return false;
+}
+
+BoxColliderComponent* BoxColliderComponent::Clone() const
+{
+	return nullptr;
 }

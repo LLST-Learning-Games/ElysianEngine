@@ -1,7 +1,12 @@
 #include "AnimatedSpriteComponent.h"
 
-AnimatedSpriteComponent::AnimatedSpriteComponent(GameObject& parent) :
-    SpriteComponent(parent)
+AnimatedSpriteComponent::AnimatedSpriteComponent(const GameObject& parent) :
+    AnimatedSpriteComponent(parent, 0.0f)
+{
+}
+AnimatedSpriteComponent::AnimatedSpriteComponent(const GameObject& parent, const float animFps) :
+    SpriteComponent(parent),
+    _animFps(animFps)
 {
 }
 
@@ -27,7 +32,7 @@ void AnimatedSpriteComponent::SetAnimTextures(std::vector<SDL_Texture*> textures
     _animTextures = textures;
 }
 
-float AnimatedSpriteComponent::GetAnimFPS() const
+const float AnimatedSpriteComponent::GetAnimFPS() const
 {
     return _animFps;
 }
@@ -35,4 +40,9 @@ float AnimatedSpriteComponent::GetAnimFPS() const
 void AnimatedSpriteComponent::SetAnimFPS(float fps)
 {
     _animFps = fps;
+}
+
+AnimatedSpriteComponent* AnimatedSpriteComponent::Clone() const
+{
+    return nullptr;
 }

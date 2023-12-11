@@ -8,9 +8,12 @@ class InputComponent :
     public GameObjectComponent
 {
 public:
-    InputComponent(GameObject& parent);
+    InputComponent(const GameObject& parent);
     void UpdateInput(const float deltaTime, const Uint8* keyboardState) override;
+
+    InputComponent* Clone() const override;
 
 private:
     TransformComponent& _transform;
+    Vector2D _directionalInput;
 };

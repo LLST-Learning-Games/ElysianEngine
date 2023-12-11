@@ -2,7 +2,7 @@
 
 #include "Game.h"
 
-DataLibrary::DataLibrary(class Game& game) :
+DataLibrary::DataLibrary(const class Game& game) :
 	_game(game)
 {
 

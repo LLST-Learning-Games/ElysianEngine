@@ -1,6 +1,6 @@
 #include "SpriteComponent.h"
 
-SpriteComponent::SpriteComponent(SDL_Texture* texture, GameObject& parent) 
+SpriteComponent::SpriteComponent(SDL_Texture* texture, const GameObject& parent) 
     : GameObjectComponent(parent, "sprite"),
     _renderer(nullptr),
     _textureHeight(0),
@@ -14,7 +14,7 @@ SpriteComponent::SpriteComponent(SDL_Texture* texture, GameObject& parent)
     }
 }
 
-SpriteComponent::SpriteComponent(GameObject& parent) 
+SpriteComponent::SpriteComponent(const GameObject& parent) 
     : SpriteComponent(nullptr, parent)
 {
 }
@@ -51,7 +51,12 @@ int SpriteComponent::GetTextureWidth() const
     return _textureWidth;
 }
 
-void SpriteComponent::Draw()
+SpriteComponent* SpriteComponent::Clone() const
+{
+    return nullptr;
+}
+
+void SpriteComponent::Draw() const
 {
     if (_texture == nullptr) {
         return;

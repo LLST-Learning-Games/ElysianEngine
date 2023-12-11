@@ -4,16 +4,11 @@
 
 
 #pragma region INITIALIZATION
-Game::Game() : Game("default")
-{
-
-}
-
-Game::Game(std::string id) :
+Game::Game(const std::string& id) :
 	_ticksCount(0),
+	_id(id),
 	_dataLibrary(new DataLibrary(*this))
 {
-	SetId(id);
 }
 
 Game::~Game() {
@@ -22,7 +17,7 @@ Game::~Game() {
 }
 
 
-bool Game::Initialize()
+const bool Game::Initialize()
 {	
 	_isRunning = InitSDL();
 
@@ -81,7 +76,7 @@ bool Game::InitSDL()
 
 }
 
-bool Game::LoadData()
+const bool Game::LoadData()
 {
 	GameObject* testUfoObject = new UfoObject("testUfo", *this);
 	GameObject* testPlayer = new PlayerObject("testPlayer", *this);
@@ -128,7 +123,7 @@ void Game::RunLoop()
 	Shutdown();
 }
 
-void Game::UpdateInput(const float& deltaTime)
+void Game::UpdateInput(const float deltaTime)
 {
 	HandleCoreInput();
 
@@ -138,7 +133,7 @@ void Game::UpdateInput(const float& deltaTime)
 }
 
 
-void Game::UpdateState(const float& deltaTime)
+void Game::UpdateState(const float deltaTime)
 {
 	for (size_t i = 0; i < _gameObjects.size(); i++) {
 		_gameObjects[i]->UpdateState(deltaTime);
@@ -153,7 +148,7 @@ void Game::UpdateState(const float& deltaTime)
 	//}
 }
 
-void Game::UpdateOutput(const float& deltaTime)
+void Game::UpdateOutput(const float deltaTime)
 {
 
 	SDL_SetRenderDrawColor(_renderer, 0, 0, 0, 255);
@@ -166,7 +161,7 @@ void Game::UpdateOutput(const float& deltaTime)
 	SDL_RenderPresent(_renderer);
 }
 
-float Game::CalculateDeltaTime()
+const float Game::CalculateDeltaTime()
 {
 	float deltaTime = (SDL_GetTicks() - _ticksCount) / 1000.0f;
 
@@ -209,7 +204,7 @@ void Game::MovePendingObjectsToMainList()
 
 #pragma region ACCESSORS
 
-GameObject* Game::GetGameObject(std::string gameObjectId)
+GameObject* Game::GetGameObject(const std::string& gameObjectId)
 {
 	for (auto& gameObject : _gameObjects) {
 		if (gameObject->GetId() == gameObjectId) {
@@ -226,30 +221,30 @@ GameObject* Game::GetGameObject(std::string gameObjectId)
 	return nullptr;
 }
 
-bool Game::TryAddGameObject(GameObject* gameObject)
+const bool Game::TryAddGameObject(const GameObject* gameObject)
 {
 	_pendingGameObjects.emplace_back(std::make_unique<GameObject>(*gameObject));
 	// todo - error handling
 	return true;
 }
 
-bool Game::TryRemoveGameObject(GameObject& gameObject)
+const bool Game::TryRemoveGameObject(const GameObject& gameObject)
 {
 	//todo
 	return false;
 }
 
-bool Game::TryRemoveGameObject(std::string gameObjectId)
+const bool Game::TryRemoveGameObject(const std::string& gameObjectId)
 {
 	return TryRemoveGameObject(*GetGameObject(gameObjectId));
 }
 
-SDL_Renderer* Game::GetRenderer()
+SDL_Renderer* Game::GetRenderer() const
 {
 	return _renderer;
 }
 
-DataLibrary& Game::GetDataLibary()
+DataLibrary& Game::GetDataLibary() const
 {
 	return *_dataLibrary;
 }
@@ -259,11 +254,7 @@ void Game::RegisterCollider(BoxColliderComponent& collider)
 	//_colliders.emplace_back(&collider);
 }
 
-void Game::SetId(std::string id) {
-	_id = id;
-}
-
-std::string Game::GetId()
+const std::string& Game::GetId()
 {
 	return _id;
 }

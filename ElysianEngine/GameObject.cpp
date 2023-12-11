@@ -2,10 +2,10 @@
 #include <iostream>
 
 #pragma region INITIALIZATION
-GameObject::GameObject(std::string id, Game& game) :
-	_game(game)
+GameObject::GameObject(const std::string& id, const Game& game) :
+	_game(game),
+	_id(id)
 {
-	SetId(id);
 }
 
 GameObject::~GameObject()
@@ -47,22 +47,17 @@ void GameObject::UpdateOutput(const float deltaTime)
 
 #pragma region ACCESSORS 
 
-std::string GameObject::GetId()
+const std::string& GameObject::GetId() const
 {
 	return std::string();
 }
 
-void GameObject::SetId(std::string id)
-{
-	_id = id;
-}
-
-TransformComponent& GameObject::GetTransform()
+TransformComponent& GameObject::GetTransform() const
 {
 	return *_transform;
 }
 
-bool GameObject::TryAddComponent(GameObjectComponent* component)
+const bool GameObject::TryAddComponent(GameObjectComponent* component)
 {
 	_components.emplace_back(component);
 	//_components.emplace_back(std::make_unique<GameObjectComponent>(*component));
@@ -73,7 +68,7 @@ bool GameObject::TryAddComponent(GameObjectComponent* component)
 	return true;
 }
 
-bool GameObject::TryRemoveComponent(GameObjectComponent& component)
+const bool GameObject::TryRemoveComponent(GameObjectComponent& component)
 {
 	// todo
 	return false;

@@ -17,27 +17,25 @@ static const float DELTA_TIME_MAX = 0.05f;
 class Game
 {
 public:
-	Game();
-	Game(std::string id);
+	Game(const std::string& id);
 	~Game();
 
-	bool Initialize();
-	void SetId(std::string id);
-	std::string GetId();
+	const bool Initialize();
+	const std::string& GetId();
 
-	bool LoadData();
+	const bool LoadData();
 
 	void RunLoop();
 	void Shutdown();
 
-	class GameObject* GetGameObject(std::string gameObjectId);
+	class GameObject* GetGameObject(const std::string& gameObjectId);
 
-	bool TryAddGameObject(class GameObject* gameObject);
-	bool TryRemoveGameObject(class GameObject& gameObject);
-	bool TryRemoveGameObject(std::string gameObjectId);
+	const bool TryAddGameObject(const class GameObject* gameObject);
+	const bool TryRemoveGameObject(const class GameObject& gameObject);
+	const bool TryRemoveGameObject(const std::string& gameObjectId);
 
-	SDL_Renderer* GetRenderer();
-	DataLibrary& GetDataLibary();
+	SDL_Renderer* GetRenderer() const;
+	DataLibrary& GetDataLibary() const;
 
 	//todo - move to Physics object
 	void RegisterCollider(class BoxColliderComponent& collider);
@@ -45,15 +43,15 @@ public:
 private:
 	bool InitSDL();
 
-	void UpdateInput(const float& deltaTime);
-	void UpdateState(const float& deltaTime);
-	void UpdateOutput(const float& deltaTime);
+	void UpdateInput(const float deltaTime);
+	void UpdateState(const float deltaTime);
+	void UpdateOutput(const float deltaTime);
 
-	float CalculateDeltaTime();
+	const float CalculateDeltaTime();
 	void HandleCoreInput();
 	void MovePendingObjectsToMainList();
 
-	std::string _id;
+	const std::string _id;
 	std::vector<std::unique_ptr<GameObject>> _gameObjects;
 	std::vector<std::unique_ptr<GameObject>> _pendingGameObjects;
 

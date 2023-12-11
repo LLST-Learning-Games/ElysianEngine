@@ -7,8 +7,8 @@
 class SpriteComponent : public GameObjectComponent
 {
 public:
-	SpriteComponent(SDL_Texture* texture, GameObject& parent);
-	SpriteComponent(GameObject& parent);
+	SpriteComponent(SDL_Texture* texture, const GameObject& parent);
+	SpriteComponent(const GameObject& parent);
 	~SpriteComponent();
 
 	virtual void UpdateOutput(const float deltaTime) override;
@@ -18,8 +18,11 @@ public:
 	int GetTextureHeight() const;
 	int GetTextureWidth() const;
 
+
+	SpriteComponent* Clone() const override;
+
 protected:
-	void Draw();
+	void Draw() const;
 
 	SDL_Texture* _texture;
 	SDL_Renderer* _renderer;

@@ -1,6 +1,6 @@
 #include "GameObjectComponent.h"
 
-GameObjectComponent::GameObjectComponent(GameObject& parent, std::string type, int updateOrder) :
+GameObjectComponent::GameObjectComponent(const GameObject& parent, const std::string type, const int updateOrder) :
 	_parent(parent),
 	_type(type),
 	_updateOrder(updateOrder)
@@ -26,7 +26,7 @@ void GameObjectComponent::UpdateOutput(const float deltaTime)
 {
 }
 
-std::string GameObjectComponent::GetType()
+const std::string& GameObjectComponent::GetType() const
 {
 	return _type;
 }

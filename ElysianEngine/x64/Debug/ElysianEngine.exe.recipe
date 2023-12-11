@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Matt\SDL2\CatsEye\x64\Debug\ElysianEngine.exe</FullPath>
+      <FullPath>C:\Matt\SDL2\ElysianEngine\x64\Debug\ElysianEngine.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
