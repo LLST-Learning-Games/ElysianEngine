@@ -17,6 +17,22 @@ GameObject::~GameObject()
 	_components.clear();
 }
 
+GameObject::GameObject(const GameObject& other) :
+	_id(other._id),
+	_game(other._game)
+{
+	std::cout << "Calling copy constructor on " << _id;
+}
+
+GameObject::GameObject(GameObject&& other) noexcept :
+	_id(other._id),
+	_game(other._game)
+{
+	_components = std::move(other._components);
+	_transform = other._transform;
+	other._transform = nullptr;
+}
+
 #pragma endregion
 
 #pragma region CORE LOOP

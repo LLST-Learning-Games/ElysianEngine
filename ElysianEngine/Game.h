@@ -30,7 +30,8 @@ public:
 
 	class GameObject* GetGameObject(const std::string& gameObjectId);
 
-	const bool TryAddGameObject(const class GameObject* gameObject);
+	const bool TryAddGameObject(class GameObject&& gameObject);
+	const bool TryAddGameObject(class GameObject* gameObject);
 	const bool TryRemoveGameObject(const class GameObject& gameObject);
 	const bool TryRemoveGameObject(const std::string& gameObjectId);
 

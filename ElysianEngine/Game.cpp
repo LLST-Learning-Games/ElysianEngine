@@ -83,6 +83,9 @@ const bool Game::LoadData()
 
 	TryAddGameObject(testUfoObject);
 	TryAddGameObject(testPlayer);
+	
+	//TryAddGameObject(UfoObject("testUfo", *this));
+	//TryAddGameObject(PlayerObject("testPlayer", *this));
 		
 	return true;
 }
@@ -221,9 +224,16 @@ GameObject* Game::GetGameObject(const std::string& gameObjectId)
 	return nullptr;
 }
 
-const bool Game::TryAddGameObject(const GameObject* gameObject)
+const bool Game::TryAddGameObject(GameObject&& gameObject)
 {
-	_pendingGameObjects.emplace_back(std::make_unique<GameObject>(*gameObject));
+	_pendingGameObjects.emplace_back(std::make_unique<GameObject>(std::move(gameObject)));
+	// todo - error handling
+	return true;
+}
+
+const bool Game::TryAddGameObject(GameObject* gameObject)
+{
+	_pendingGameObjects.emplace_back(std::unique_ptr<GameObject>(gameObject));
 	// todo - error handling
 	return true;
 }
