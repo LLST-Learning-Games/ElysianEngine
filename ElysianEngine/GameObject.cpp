@@ -4,12 +4,16 @@
 #pragma region INITIALIZATION
 GameObject::GameObject(const std::string& id, const Game& game) :
 	_game(game),
-	_id(id)
+	_id(id),
+	_transform(nullptr)
 {
+	std::cout << "Constructing new " << _id << ".\n";
+
 }
 
 GameObject::~GameObject()
 {
+	std::cout << "Destroying " << _id << ".\n";
 	for (auto component : _components) 
 	{
 		delete component;
@@ -19,15 +23,22 @@ GameObject::~GameObject()
 
 GameObject::GameObject(const GameObject& other) :
 	_id(other._id),
-	_game(other._game)
+	_game(other._game),
+	_transform(nullptr)
 {
-	std::cout << "Calling copy constructor on " << _id;
+	std::cout << "Calling copy constructor on " << _id << ".\n";
+	for (auto component : other._components) {
+		TryAddComponent(component->Clone());
+	}
 }
 
 GameObject::GameObject(GameObject&& other) noexcept :
 	_id(other._id),
 	_game(other._game)
 {
+	// todo - This move constructor breaks the _parent reference on the components!  
+	//		  Need to decide if I will make _parent a pointer or remove this approach.
+	
 	_components = std::move(other._components);
 	_transform = other._transform;
 	other._transform = nullptr;

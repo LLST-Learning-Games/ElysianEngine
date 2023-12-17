@@ -7,7 +7,7 @@ int main(int argc, char* args[])
     std::cout << "Hello World!\n";
     Game* game = new Game("Ziggy's Folly");
 
-    std::cout << "Game ID: " << game->GetId();
+    std::cout << "Game ID: " << game->GetId() << "\n";
 
     game->Initialize();
     game->RunLoop();

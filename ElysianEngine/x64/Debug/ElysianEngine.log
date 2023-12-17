@@ -1,17 +1,3 @@
-﻿  AnimatedSpriteComponent.cpp
-C:\Matt\SDL2\ElysianEngine\ElysianEngine\AnimatedSpriteComponent.cpp(15,36): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  BoxColliderComponent.cpp
-  ElysianEngine.cpp
-  DataLibrary.cpp
-  Game.cpp
-  GameObject.cpp
-  GameObjectComponent.cpp
-  InputComponent.cpp
-  PlayerObject.cpp
-  SpriteComponent.cpp
-  TransformComponent.cpp
-  UfoObject.cpp
-  Generating Code...
-C:\Matt\SDL2\ElysianEngine\ElysianEngine\GameObject.cpp(68): warning C4172: returning address of local variable or temporary
-C:\Matt\SDL2\ElysianEngine\ElysianEngine\Game.cpp(77): warning C4715: 'Game::InitSDL': not all control paths return a value
+﻿  GameObject.cpp
+C:\Matt\SDL2\ElysianEngine\ElysianEngine\GameObject.cpp(76): warning C4172: returning address of local variable or temporary
   ElysianEngine.vcxproj -> C:\Matt\SDL2\ElysianEngine\x64\Debug\ElysianEngine.exe
