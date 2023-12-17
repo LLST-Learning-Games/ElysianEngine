@@ -36,11 +36,8 @@ public:
 
 private:
 	const Game& _game;
-
-	class TransformComponent* _transform;
-
-	// todo - migrate to unique_ptr
-	std::vector<GameObjectComponent*> _components;
 	const std::string _id;
+	std::vector<std::unique_ptr<GameObjectComponent>> _components;
+	class TransformComponent* _transform;
 };
 

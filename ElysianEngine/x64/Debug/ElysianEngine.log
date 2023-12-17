@@ -1,3 +1,6 @@
 ﻿  GameObject.cpp
-C:\Matt\SDL2\ElysianEngine\ElysianEngine\GameObject.cpp(76): warning C4172: returning address of local variable or temporary
+  InputComponent.cpp
+  UfoObject.cpp
+  Generating Code...
+C:\Matt\SDL2\ElysianEngine\ElysianEngine\GameObject.cpp(75): warning C4172: returning address of local variable or temporary
   ElysianEngine.vcxproj -> C:\Matt\SDL2\ElysianEngine\x64\Debug\ElysianEngine.exe

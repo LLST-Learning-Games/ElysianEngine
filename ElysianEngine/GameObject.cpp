@@ -14,10 +14,6 @@ GameObject::GameObject(const std::string& id, const Game& game) :
 GameObject::~GameObject()
 {
 	std::cout << "Destroying " << _id << ".\n";
-	for (auto component : _components) 
-	{
-		delete component;
-	}
 	_components.clear();
 }
 
@@ -27,7 +23,7 @@ GameObject::GameObject(const GameObject& other) :
 	_transform(nullptr)
 {
 	std::cout << "Calling copy constructor on " << _id << ".\n";
-	for (auto component : other._components) {
+	for (auto &component : other._components) {
 		TryAddComponent(component->Clone());
 	}
 }
@@ -86,7 +82,7 @@ TransformComponent& GameObject::GetTransform() const
 
 const bool GameObject::TryAddComponent(GameObjectComponent* component)
 {
-	_components.emplace_back(component);
+	_components.emplace_back(std::unique_ptr<GameObjectComponent>(component));
 	//_components.emplace_back(std::make_unique<GameObjectComponent>(*component));
 	
 	if (component->GetType() == "transform") {
