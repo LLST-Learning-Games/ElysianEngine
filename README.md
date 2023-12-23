@@ -5,10 +5,10 @@
 <h2>Todo</h2>
 <ul>
   <li>
-  Improve memory management
+  Implement command structure in UpdateState() to pass updates in a more orderly way
   <ul>
-    <li>Remove all naked pointers and replace with unique_ptr</li>
-    <li>Implement copy/move semantics for GameObject / GameObjectComponent classes.</li>
+    <li>Implement CommandStream object with HashMap of Commands</li>
+    <li>Refactor UpdateState loop to process commands</li>
   </ul>
   </li>
   <li>
