@@ -2,7 +2,7 @@
 #include <iostream>
 
 #pragma region INITIALIZATION
-GameObject::GameObject(const std::string& id, const Game& game) :
+GameObject::GameObject(const std::string& id, Game& game) :
 	_game(game),
 	_id(id),
 	_transform(nullptr)
@@ -63,6 +63,11 @@ void GameObject::UpdateOutput(const float deltaTime)
 	for (int i = 0; i < _components.size(); i++) {
 		_components[i]->UpdateOutput(deltaTime);
 	}
+}
+
+Game& GameObject::GetGame()
+{
+	return _game;
 }
 
 

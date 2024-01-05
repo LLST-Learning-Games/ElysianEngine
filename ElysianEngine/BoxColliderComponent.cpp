@@ -1,6 +1,6 @@
 #include "BoxColliderComponent.h"
 
-BoxColliderComponent::BoxColliderComponent(const GameObject& parent, const Vector2D& size)
+BoxColliderComponent::BoxColliderComponent(GameObject& parent, const Vector2D& size)
 	: GameObjectComponent(parent, "boxCollider"),
 	_size(size)
 {

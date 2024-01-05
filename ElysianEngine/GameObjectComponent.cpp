@@ -1,6 +1,6 @@
 #include "GameObjectComponent.h"
 
-GameObjectComponent::GameObjectComponent(const GameObject& parent, const std::string type, const int updateOrder) :
+GameObjectComponent::GameObjectComponent(GameObject& parent, const std::string type, const int updateOrder) :
 	_parent(parent),
 	_type(type),
 	_updateOrder(updateOrder)

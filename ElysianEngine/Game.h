@@ -7,6 +7,7 @@
 #include "GameObject.h"
 #include "DataLibrary.h"
 #include "BoxColliderComponent.h"
+#include "CommandStream.h"
 
 
 static const int SCREEN_HEIGHT = 768;
@@ -37,6 +38,7 @@ public:
 
 	SDL_Renderer* GetRenderer() const;
 	DataLibrary& GetDataLibary() const;
+	CommandStream& GetCommandStream();
 
 	//todo - move to Physics object
 	void RegisterCollider(class BoxColliderComponent& collider);
@@ -70,6 +72,7 @@ private:
 	SDL_Renderer* _renderer;
 
 	std::unique_ptr<DataLibrary> _dataLibrary;
+	CommandStream _commandStream;
 
 };
 

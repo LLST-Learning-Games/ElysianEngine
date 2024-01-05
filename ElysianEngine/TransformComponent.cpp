@@ -1,6 +1,6 @@
 #include "TransformComponent.h"
 
-TransformComponent::TransformComponent(const Vector2D& position, const Vector2D& scale, const float rotation, const GameObject& parent) 
+TransformComponent::TransformComponent(const Vector2D& position, const Vector2D& scale, const float rotation, GameObject& parent) 
 	: GameObjectComponent(parent, "transform"),
 	_position(position),
 	_rotation(rotation),
@@ -9,7 +9,7 @@ TransformComponent::TransformComponent(const Vector2D& position, const Vector2D&
 {
 }
 
-TransformComponent::TransformComponent(const Vector2D& position, const Vector2D& scale, const GameObject& parent) 
+TransformComponent::TransformComponent(const Vector2D& position, const Vector2D& scale, GameObject& parent) 
 	: GameObjectComponent(parent, "transform"),
 	_position(position),
 	_rotation(0.0f),
@@ -19,7 +19,7 @@ TransformComponent::TransformComponent(const Vector2D& position, const Vector2D&
 	
 }
 
-TransformComponent::TransformComponent(const Vector2D& position, const float rotation, const GameObject& parent) 
+TransformComponent::TransformComponent(const Vector2D& position, const float rotation, GameObject& parent) 
 	: GameObjectComponent(parent, "transform"),
 	_position(position),
 	_rotation(rotation),
@@ -29,7 +29,7 @@ TransformComponent::TransformComponent(const Vector2D& position, const float rot
 
 }
 
-TransformComponent::TransformComponent(const Vector2D& position, const GameObject& parent) 
+TransformComponent::TransformComponent(const Vector2D& position, GameObject& parent) 
 	:GameObjectComponent(parent, "transform"),
 	_position(position),
 	_rotation(0.0f),

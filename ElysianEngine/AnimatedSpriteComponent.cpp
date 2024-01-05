@@ -1,10 +1,10 @@
 #include "AnimatedSpriteComponent.h"
 
-AnimatedSpriteComponent::AnimatedSpriteComponent(const GameObject& parent) :
+AnimatedSpriteComponent::AnimatedSpriteComponent(GameObject& parent) :
     AnimatedSpriteComponent(parent, 0.0f)
 {
 }
-AnimatedSpriteComponent::AnimatedSpriteComponent(const GameObject& parent, const float animFps) :
+AnimatedSpriteComponent::AnimatedSpriteComponent(GameObject& parent, const float animFps) :
     SpriteComponent(parent),
     _animFps(animFps)
 {
@@ -12,7 +12,7 @@ AnimatedSpriteComponent::AnimatedSpriteComponent(const GameObject& parent, const
 
 void AnimatedSpriteComponent::UpdateOutput(const float deltaTime)
 {
-    int size = _animTextures.size();
+    size_t size = _animTextures.size();
     if (size < 1) {
         return;
     }

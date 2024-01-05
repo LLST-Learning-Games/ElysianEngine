@@ -7,10 +7,10 @@
 class TransformComponent : public GameObjectComponent
 {
 public:
-	TransformComponent(const Vector2D& position, const Vector2D& scale, const float rotation, const GameObject& parent);
-	TransformComponent(const Vector2D& position, const Vector2D& scale, const GameObject& parent);
-	TransformComponent(const Vector2D& position, const float rotation, const GameObject& parent);
-	TransformComponent(const Vector2D& position, const GameObject& parent);
+	TransformComponent(const Vector2D& position, const Vector2D& scale, const float rotation, GameObject& parent);
+	TransformComponent(const Vector2D& position, const Vector2D& scale, GameObject& parent);
+	TransformComponent(const Vector2D& position, const float rotation, GameObject& parent);
+	TransformComponent(const Vector2D& position, GameObject& parent);
 
 	const Vector2D& GetPosition() const;
 	const Vector2D& GetScale() const;

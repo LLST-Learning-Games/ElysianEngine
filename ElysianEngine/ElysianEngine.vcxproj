@@ -133,12 +133,15 @@
   <ItemGroup>
     <ClCompile Include="AnimatedSpriteComponent.cpp" />
     <ClCompile Include="BoxColliderComponent.cpp" />
+    <ClCompile Include="CommandStream.cpp" />
     <ClCompile Include="ElysianEngine.cpp" />
     <ClCompile Include="DataLibrary.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Command.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="MoveCommand.cpp" />
     <ClCompile Include="PlayerObject.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
@@ -151,11 +154,14 @@
   <ItemGroup>
     <ClInclude Include="AnimatedSpriteComponent.h" />
     <ClInclude Include="BoxColliderComponent.h" />
+    <ClInclude Include="CommandStream.h" />
     <ClInclude Include="DataLibrary.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Command.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectComponent.h" />
     <ClInclude Include="InputComponent.h" />
+    <ClInclude Include="MoveCommand.h" />
     <ClInclude Include="PlayerObject.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="TransformComponent.h" />

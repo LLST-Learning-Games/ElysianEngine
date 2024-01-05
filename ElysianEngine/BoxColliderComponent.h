@@ -7,7 +7,7 @@ class BoxColliderComponent :
     public GameObjectComponent
 {
 public:
-    BoxColliderComponent(const GameObject& parent, const Vector2D& size);
+    BoxColliderComponent(GameObject& parent, const Vector2D& size);
     const bool IntersectsWith(const BoxColliderComponent& otherBox) const;
 
     BoxColliderComponent* Clone() const override;

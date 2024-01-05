@@ -55,6 +55,12 @@
     <Filter Include="Source Files\Core\Components\Physics">
       <UniqueIdentifier>{16a6173e-4a63-464e-85e9-7d3a1fa0f702}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Core\Commands">
+      <UniqueIdentifier>{8d378683-c546-4c9b-8e9e-3c806d0bb47e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\Commands">
+      <UniqueIdentifier>{fd16b4dd-bbeb-42df-8c47-38d564f6a0af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ElysianEngine.cpp">
@@ -96,6 +102,15 @@
     <ClCompile Include="TransformComponent.cpp">
       <Filter>Source Files\Core\Components\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="MoveCommand.cpp">
+      <Filter>Source Files\Core\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.cpp">
+      <Filter>Source Files\Core\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandStream.cpp">
+      <Filter>Source Files\Core\Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -136,6 +151,15 @@
     </ClInclude>
     <ClInclude Include="TransformComponent.h">
       <Filter>Header Files\Core\Components\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveCommand.h">
+      <Filter>Header Files\Core\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Header Files\Core\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandStream.h">
+      <Filter>Header Files\Core\Commands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

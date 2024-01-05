@@ -259,6 +259,11 @@ DataLibrary& Game::GetDataLibary() const
 	return *_dataLibrary;
 }
 
+CommandStream& Game::GetCommandStream()
+{
+	return _commandStream;
+}
+
 void Game::RegisterCollider(BoxColliderComponent& collider)
 {
 	//_colliders.emplace_back(&collider);

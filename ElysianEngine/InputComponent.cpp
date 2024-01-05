@@ -1,7 +1,7 @@
 #include "InputComponent.h"
 
 
-InputComponent::InputComponent(const GameObject& parent)
+InputComponent::InputComponent(GameObject& parent)
 	: GameObjectComponent(parent, "input"),
 	_transform(parent.GetTransform())
 {
@@ -25,7 +25,8 @@ void InputComponent::UpdateInput(const float deltaTime, const Uint8* keyboardSta
 		_directionalInput.x += 5;
 	}
 
-	_transform.SetMovementThisFrame(_directionalInput);
+	MoveCommand* command = new MoveCommand(_directionalInput);
+	_parent.GetGame().GetCommandStream().RegisterCommand(_parent.GetId(),"transform",command);
 }
 
 InputComponent* InputComponent::Clone() const

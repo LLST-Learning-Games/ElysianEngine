@@ -7,8 +7,8 @@
 class SpriteComponent : public GameObjectComponent
 {
 public:
-	SpriteComponent(SDL_Texture* texture, const GameObject& parent);
-	SpriteComponent(const GameObject& parent);
+	SpriteComponent(SDL_Texture* texture, GameObject& parent);
+	SpriteComponent(GameObject& parent);
 	~SpriteComponent();
 
 	virtual void UpdateOutput(const float deltaTime) override;

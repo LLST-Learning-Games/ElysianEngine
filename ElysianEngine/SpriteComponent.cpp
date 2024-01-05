@@ -1,6 +1,6 @@
 #include "SpriteComponent.h"
 
-SpriteComponent::SpriteComponent(SDL_Texture* texture, const GameObject& parent) 
+SpriteComponent::SpriteComponent(SDL_Texture* texture, GameObject& parent) 
     : GameObjectComponent(parent, "sprite"),
     _renderer(nullptr),
     _textureHeight(0),
@@ -14,7 +14,7 @@ SpriteComponent::SpriteComponent(SDL_Texture* texture, const GameObject& parent)
     }
 }
 
-SpriteComponent::SpriteComponent(const GameObject& parent) 
+SpriteComponent::SpriteComponent(GameObject& parent) 
     : SpriteComponent(nullptr, parent)
 {
 }

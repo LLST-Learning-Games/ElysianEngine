@@ -5,7 +5,7 @@
 class GameObjectComponent
 {
 public:
-	GameObjectComponent(const class GameObject& parent, const std::string type, const int updateOrder = 100);
+	GameObjectComponent(class GameObject& parent, const std::string type, const int updateOrder = 100);
 
 	int GetUpdateOrder();
 
@@ -18,7 +18,7 @@ public:
 	const std::string& GetType() const;
 
 protected:
-	const class GameObject& _parent;
+	GameObject& _parent;
 	const int _updateOrder;
 	const std::string _type;
 };
