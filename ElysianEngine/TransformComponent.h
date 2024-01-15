@@ -2,6 +2,7 @@
 #include "GameObjectComponent.h"
 #include "GameObject.h"
 #include "Vector2D.h"
+#include "MoveCommand.h"
 #include <iostream>
 
 class TransformComponent : public GameObjectComponent
@@ -21,7 +22,7 @@ public:
 	void SetRotation(const float rotation);
 	void SetMovementThisFrame(const Vector2D& moveBy);
 
-	void UpdateState(const float deltaTime) override;
+	void UpdateState(const float deltaTime, Command* command) override;
 
 	TransformComponent* Clone() const override;
 

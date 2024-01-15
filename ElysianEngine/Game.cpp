@@ -139,7 +139,9 @@ void Game::UpdateInput(const float deltaTime)
 void Game::UpdateState(const float deltaTime)
 {
 	for (size_t i = 0; i < _gameObjects.size(); i++) {
-		_gameObjects[i]->UpdateState(deltaTime);
+		std::unordered_map<std::string, std::unique_ptr<Command>>* objectCommands;
+		objectCommands = _commandStream.GetGameObjectCommandList(_gameObjects[i]->GetId());
+		_gameObjects[i]->UpdateState(deltaTime, objectCommands);
 	}
 
 	//for (size_t i = 0; i < _colliders.size(); i++) {
@@ -162,6 +164,7 @@ void Game::UpdateOutput(const float deltaTime)
 	}
 
 	SDL_RenderPresent(_renderer);
+	_commandStream.ClearCommands();
 }
 
 const float Game::CalculateDeltaTime()

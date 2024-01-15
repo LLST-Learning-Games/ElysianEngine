@@ -5,9 +5,9 @@
 class MoveCommand : public Command
 {
 public:
-    MoveCommand(Vector2D movement);
+    MoveCommand(class Vector2D movement);
 
-    void Execute(TransformComponent& transform);
+    void Execute(class TransformComponent& transform);
 
 private:
     Vector2D _movement;

@@ -74,8 +74,16 @@ void TransformComponent::SetMovementThisFrame(const Vector2D& moveBy)
 	_movementThisFrame = &moveBy;
 }
 
-void TransformComponent::UpdateState(const float deltaTime)
+void TransformComponent::UpdateState(const float deltaTime, Command* command)
 {
+	if (command == nullptr) return;
+
+	MoveCommand* moveCommand = (MoveCommand*)command;
+
+	if (moveCommand == nullptr) return;
+
+	moveCommand->Execute(*this);
+
 	if (_movementThisFrame == nullptr) return;
 
 	_position = _position + *_movementThisFrame;

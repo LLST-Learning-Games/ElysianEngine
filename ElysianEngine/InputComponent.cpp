@@ -1,4 +1,6 @@
 #include "InputComponent.h"
+#include "MoveCommand.h"
+#include <iostream>
 
 
 InputComponent::InputComponent(GameObject& parent)
@@ -25,8 +27,12 @@ void InputComponent::UpdateInput(const float deltaTime, const Uint8* keyboardSta
 		_directionalInput.x += 5;
 	}
 
-	MoveCommand* command = new MoveCommand(_directionalInput);
-	_parent.GetGame().GetCommandStream().RegisterCommand(_parent.GetId(),"transform",command);
+	if(_directionalInput.x != 0
+		|| _directionalInput.y != 0)
+	{
+		MoveCommand* command = new MoveCommand(_directionalInput);
+		_parent.GetGame().GetCommandStream().RegisterCommand(_parent.GetId(), "transform", command);
+	}
 }
 
 InputComponent* InputComponent::Clone() const

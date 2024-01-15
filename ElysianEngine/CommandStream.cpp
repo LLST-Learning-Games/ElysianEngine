@@ -13,4 +13,10 @@ std::unordered_map<std::string, std::unique_ptr<Command>>* CommandStream::GetGam
 	return nullptr;
 }
 
+void CommandStream::ClearCommands()
+{
+	// todo - move to object pool structure rather than allocate and deallocate
+	_commandStream.clear();
+}
+
 

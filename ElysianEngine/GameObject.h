@@ -22,7 +22,7 @@ public:
 	GameObject& operator=(GameObject&& other) noexcept = delete;
 
 	void UpdateInput(const float deltaTime, const Uint8* keyboardState);
-	void UpdateState(const float deltaTime);
+	void UpdateState(const float deltaTime, std::unordered_map<std::string, std::unique_ptr<Command>>*);
 	void UpdateOutput(const float deltaTime);
 
 	Game& GetGame();

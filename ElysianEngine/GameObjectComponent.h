@@ -1,6 +1,9 @@
 #pragma once
+#include <unordered_map>
+#include <memory>
 #include <string>
 #include <SDL_stdinc.h>
+#include "Command.h"
 
 class GameObjectComponent
 {
@@ -10,7 +13,7 @@ public:
 	int GetUpdateOrder();
 
 	virtual void UpdateInput(const float deltaTime, const Uint8* keyboardState);
-	virtual void UpdateState(const float deltaTime);
+	virtual void UpdateState(const float deltaTime, Command* command);
 	virtual void UpdateOutput(const float deltaTime);
 
 	virtual GameObjectComponent* Clone() const = 0;

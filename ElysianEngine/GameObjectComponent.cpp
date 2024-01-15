@@ -18,7 +18,7 @@ void GameObjectComponent::UpdateInput(const float deltaTime, const Uint8* keyboa
 {
 }
 
-void GameObjectComponent::UpdateState(const float deltaTime)
+void GameObjectComponent::UpdateState(const float deltaTime, Command* command)
 {
 }
 

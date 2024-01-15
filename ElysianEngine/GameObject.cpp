@@ -51,10 +51,20 @@ void GameObject::UpdateInput(const float deltaTime, const Uint8* keyboardState)
 	}
 }
 
-void GameObject::UpdateState(const float deltaTime)
+void GameObject::UpdateState(const float deltaTime, std::unordered_map<std::string, std::unique_ptr<Command>>* commands)
 {
 	for (int i = 0; i < _components.size(); i++) {
-		_components[i]->UpdateState(deltaTime);
+		
+		Command* command = nullptr;
+		const std::string& id = _components[i]->GetType();
+
+		if(commands != nullptr &&
+			commands->find(id) != commands->end())
+		{
+			command = (*commands)[id].get();
+		}
+
+		_components[i]->UpdateState(deltaTime, command);
 	}
 }
 
@@ -77,7 +87,7 @@ Game& GameObject::GetGame()
 
 const std::string& GameObject::GetId() const
 {
-	return std::string();
+	return _id;
 }
 
 TransformComponent& GameObject::GetTransform() const
@@ -88,7 +98,6 @@ TransformComponent& GameObject::GetTransform() const
 const bool GameObject::TryAddComponent(GameObjectComponent* component)
 {
 	_components.emplace_back(std::unique_ptr<GameObjectComponent>(component));
-	//_components.emplace_back(std::make_unique<GameObjectComponent>(*component));
 	
 	if (component->GetType() == "transform") {
 		_transform = dynamic_cast<TransformComponent*>(component);
