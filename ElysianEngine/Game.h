@@ -40,9 +40,6 @@ public:
 	DataLibrary& GetDataLibary() const;
 	CommandStream& GetCommandStream();
 
-	//todo - move to Physics object
-	void RegisterCollider(class BoxColliderComponent& collider);
-
 private:
 	bool InitSDL();
 
@@ -57,9 +54,6 @@ private:
 	const std::string _id;
 	std::vector<std::unique_ptr<GameObject>> _gameObjects;
 	std::vector<std::unique_ptr<GameObject>> _pendingGameObjects;
-
-	//todo - move to separate PhysicsSimulation object
-	std::vector<BoxColliderComponent*> _colliders;
 
 	bool _isRunning;
 

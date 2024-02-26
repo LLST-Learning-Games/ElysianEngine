@@ -3,6 +3,7 @@
 #include "SpriteComponent.h"
 #include "AnimatedSpriteComponent.h"
 #include "InputComponent.h"
+#include "BoxColliderComponent.h"
 
 #include "DataLibrary.h"
 

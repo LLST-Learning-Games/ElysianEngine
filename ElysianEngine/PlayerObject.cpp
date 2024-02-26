@@ -34,4 +34,12 @@ PlayerObject::PlayerObject(std::string id, Game& game) :
 	InputComponent* input = new InputComponent(*this);
 
 	TryAddComponent(input);
+
+	int h;
+	int w;
+	SDL_QueryTexture(textures[0], NULL, NULL, &w, &h);
+	Vector2D size = Vector2D(w, h);
+	BoxColliderComponent* collider = new BoxColliderComponent(*this,size);
+
+	TryAddComponent(collider);
 }

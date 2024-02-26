@@ -1,7 +1,7 @@
 #include "Game.h"
 #include "UfoObject.h"
 #include "PlayerObject.h"
-
+#include "PhysicsWorldObject.h"
 
 #pragma region INITIALIZATION
 Game::Game(const std::string& id) :
@@ -15,7 +15,6 @@ Game::~Game() {
 
 	_window = nullptr;
 }
-
 
 const bool Game::Initialize()
 {	
@@ -78,9 +77,11 @@ bool Game::InitSDL()
 
 const bool Game::LoadData()
 {
+	GameObject* physicsWorldObject = new class PhysicsWorldObject("physicsWorld", *this);
 	GameObject* testUfoObject = new UfoObject("testUfo", *this);
 	GameObject* testPlayer = new PlayerObject("testPlayer", *this);
 
+	TryAddGameObject(physicsWorldObject);
 	TryAddGameObject(testUfoObject);
 	TryAddGameObject(testPlayer);
 	
@@ -116,11 +117,11 @@ void Game::RunLoop()
 
 		_deltaTime = CalculateDeltaTime();
 
+		MovePendingObjectsToMainList();
+
 		UpdateInput(_deltaTime);
 		UpdateState(_deltaTime);
 		UpdateOutput(_deltaTime);
-
-		MovePendingObjectsToMainList();
 	}
 
 	Shutdown();
@@ -143,14 +144,6 @@ void Game::UpdateState(const float deltaTime)
 		objectCommands = _commandStream.GetGameObjectCommandList(_gameObjects[i]->GetId());
 		_gameObjects[i]->UpdateState(deltaTime, objectCommands);
 	}
-
-	//for (size_t i = 0; i < _colliders.size(); i++) {
-	//	for (size_t j = i + 1; j < _colliders.size(); j++) {
-	//		BoxColliderComponent* colliderA = _colliders[i];
-	//		BoxColliderComponent* colliderB = _colliders[j];
-
-	//	}
-	//}
 }
 
 void Game::UpdateOutput(const float deltaTime)
@@ -265,11 +258,6 @@ DataLibrary& Game::GetDataLibary() const
 CommandStream& Game::GetCommandStream()
 {
 	return _commandStream;
-}
-
-void Game::RegisterCollider(BoxColliderComponent& collider)
-{
-	//_colliders.emplace_back(&collider);
 }
 
 const std::string& Game::GetId()
