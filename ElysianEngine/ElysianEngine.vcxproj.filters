@@ -61,6 +61,12 @@
     <Filter Include="Source Files\Core\Commands">
       <UniqueIdentifier>{fd16b4dd-bbeb-42df-8c47-38d564f6a0af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Core\CoreObjects">
+      <UniqueIdentifier>{f17ec736-7a50-48b9-842c-fe2d940e5418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core\CoreObjects">
+      <UniqueIdentifier>{de3447f4-1c86-4822-b2f5-1b541fbcbdf2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ElysianEngine.cpp">
@@ -111,6 +117,15 @@
     <ClCompile Include="CommandStream.cpp">
       <Filter>Source Files\Core\Commands</Filter>
     </ClCompile>
+    <ClCompile Include="PhysicsWorldObject.cpp">
+      <Filter>Source Files\Core\CoreObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsWorldCollisionComponent.cpp">
+      <Filter>Source Files\Core\CoreObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterColliderWithPhysicsWorldCommand.cpp">
+      <Filter>Source Files\Core\Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -159,6 +174,15 @@
       <Filter>Header Files\Core\Commands</Filter>
     </ClInclude>
     <ClInclude Include="CommandStream.h">
+      <Filter>Header Files\Core\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsWorldObject.h">
+      <Filter>Header Files\Core\CoreObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsWorldCollisionComponent.h">
+      <Filter>Header Files\Core\CoreObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="RegisterColliderWithPhysicsWorldCommand.h">
       <Filter>Header Files\Core\Commands</Filter>
     </ClInclude>
   </ItemGroup>

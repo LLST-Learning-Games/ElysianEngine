@@ -4,6 +4,8 @@ BoxColliderComponent::BoxColliderComponent(GameObject& parent, const Vector2D& s
 	: GameObjectComponent(parent, "boxCollider"),
 	_size(size)
 {
+	RegisterColliderWithPhysicsWorldCommand* command = new RegisterColliderWithPhysicsWorldCommand(this);
+	_parent.GetGame().GetCommandStream().RegisterCommand("physicsWorld", "PhysicsWorldCollisionHandler", command);
 }
 
 const bool BoxColliderComponent::IntersectsWith(const BoxColliderComponent& otherBox) const

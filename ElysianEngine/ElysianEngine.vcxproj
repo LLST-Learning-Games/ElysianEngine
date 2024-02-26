@@ -142,7 +142,10 @@
     <ClCompile Include="GameObjectComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="MoveCommand.cpp" />
+    <ClCompile Include="PhysicsWorldCollisionComponent.cpp" />
+    <ClCompile Include="PhysicsWorldObject.cpp" />
     <ClCompile Include="PlayerObject.cpp" />
+    <ClCompile Include="RegisterColliderWithPhysicsWorldCommand.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="TransformComponent.cpp" />
     <ClCompile Include="UfoObject.cpp" />
@@ -162,7 +165,10 @@
     <ClInclude Include="GameObjectComponent.h" />
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="MoveCommand.h" />
+    <ClInclude Include="PhysicsWorldCollisionComponent.h" />
+    <ClInclude Include="PhysicsWorldObject.h" />
     <ClInclude Include="PlayerObject.h" />
+    <ClInclude Include="RegisterColliderWithPhysicsWorldCommand.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="UfoObject.h" />

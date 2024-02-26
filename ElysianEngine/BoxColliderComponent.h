@@ -2,6 +2,7 @@
 #include "GameObjectComponent.h"
 #include "TransformComponent.h"
 #include "Vector2D.h"
+#include "RegisterColliderWithPhysicsWorldCommand.h"
 
 class BoxColliderComponent :
     public GameObjectComponent
